@@ -1,0 +1,12 @@
+{
+  "name": "webhook-splunk-hec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Sandeep Vasani",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "splunk-logging": "^0.10.1"
+  }
+}

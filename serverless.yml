@@ -1,0 +1,30 @@
+service: webhook-hec # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+# you can overwrite defaults here
+  region: us-east-1
+
+  environment:
+    WEBHOOK_TOKEN: ${opt:auth_token, ""}
+    SPLUNK_URL: ${opt:splunk_url, ""}
+    SPLUNK_TOKEN: ${opt:splunk_token, ""}
+    REGION: ${opt:region, self:provider.region}
+
+functions:
+  logToSplunk:
+    handler: handler.logToSplunk
+    events:
+      - http:
+          path: webhook
+          method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: false
+
+
