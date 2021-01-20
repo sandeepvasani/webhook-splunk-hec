@@ -11,8 +11,12 @@ module.exports.logToSplunk = (event, context, callback) => {
     };
     var errMsg;
     const token = process.env.WEBHOOK_TOKEN;
+    const app=process.env.APP;
     const headers = event.headers;
-    const auth = headers['Authorization'];
+    if (app=='zoom')
+        const auth = headers['Authorization'];
+    if (app=='gitlab')
+        const auth = headers['X-Gitlab-Token'];
 
     if (!auth) {
         errMsg = 'No Auth Found on Request';

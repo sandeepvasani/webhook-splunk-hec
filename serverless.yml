@@ -8,6 +8,7 @@ provider:
   region: us-east-1
 
   environment:
+    APP: ${opt:app, ""}
     WEBHOOK_TOKEN: ${opt:auth_token, ""}
     SPLUNK_URL: ${opt:splunk_url, ""}
     SPLUNK_TOKEN: ${opt:splunk_token, ""}

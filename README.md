@@ -22,6 +22,7 @@ Configure [Serverless here](https://serverless.com/framework/docs/providers/aws/
 ## Deploying
 The system can be deployed via the command line, with the following parameters:
 
+- `app`: application name (zoom, gitlab, etc)
 - `region`: an AWS region 
 - `auth_token`: authorization token
 - `splunk_url`: the url of your target splunk instance, including the relevant port number for HttpEventCollector
@@ -29,7 +30,7 @@ The system can be deployed via the command line, with the following parameters:
 
 Example:
 ```
-serverless deploy --region=us-east-2 --auth_token=cchh-ddc-dff --splunk_url=https://input-prd-p-abcdefg.cloud.splunk.com:8088 --splunk_token=XXX
+serverless deploy --app=zoom --region=us-east-2 --auth_token=cchh-ddc-dff --splunk_url=https://input-prd-p-abcdefg.cloud.splunk.com:8088 --splunk_token=XXX
 ```
 
 After the deploy has finished you should see something like:
@@ -54,3 +55,7 @@ Configure your webhook in your zoom settings. [Setting up a Webhook App](https:/
 **(2.)** Choose the types of events you want the zoom webhook to fire on
 
 **(3.)** Plugin your verification token for auth_token
+
+
+## Configure Gitlab to send data
+Configure your webhook in your gitlab settings. [Setting up a Webhook App](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html)
